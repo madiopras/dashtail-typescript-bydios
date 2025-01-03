@@ -16,6 +16,7 @@ import AboutUs from "./about-us"
 import Stats from "./stats"
 import Contact from "./contact"
 import Footer from "./footer";
+import { Button } from "../ui/button";
 const LandingPageView = () => {
   const mounted = useMounted();
   if (!mounted) {
@@ -24,18 +25,7 @@ const LandingPageView = () => {
   return (
     <div className="bg-background">
       <Header />
-      <Hero />
-      <Stats />
-      <AllComponents />
-      <ShowCase />
-      <ColorSchemas />
-      <ProjectTools />
-      <FigmaKit />
-      <AboutUs />
-      <AboutDashtail />
-      <Faq />
-      <PricingPlan />
-      <CustomProject />
+      
       <Contact />
       <Footer />
     </div>

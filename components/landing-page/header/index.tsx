@@ -117,9 +117,9 @@ const Header = () => {
         <div className="flex items-center gap-6">
           <ThemeButton />
           <Button asChild size="sm">
-            <Link href="https://1.envato.market/dashtail-regular" target="__blank" className="text-sm font-semibold">
+            <Link href="/auth/login" target="__blank" className="text-sm font-semibold">
               <Icon icon="heroicons:shopping-cart" className="w-4 h-4 me-1.5" />
-              Buy Now
+              Login
             </Link>
           </Button>
         </div>

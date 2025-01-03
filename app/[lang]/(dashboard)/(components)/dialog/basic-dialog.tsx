@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 const BasicDialog = () => {
-  return (
+  return ( 
     <div>
       <Dialog>
         <DialogTrigger asChild>
@@ -49,7 +49,7 @@ const BasicDialog = () => {
               <Button type="button" variant="outline" color="warning">Close</Button>
             </DialogClose>
 
-            <Button type="submit">Save</Button>
+            <Button type="submit">Terapkan</Button>
           </DialogFooter>
 
         </DialogContent>

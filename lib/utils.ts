@@ -1,5 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge";
+import { signOut } from "next-auth/react";
+import toast from "react-hot-toast";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -170,4 +172,38 @@ export const translate = (title: string, trans: Translations): string => {
 
   return title;
 };
+
+// for error response API
+
+export const handleError = (error: any) => {
+  if (error.response) {
+    switch (error.response.status) {
+      case 400:
+        toast.error("Permintaan tidak valid. Silakan periksa input Anda.");
+        break;
+      case 401:
+        toast.error("Token kadaluarsa, silahkan login kembali.");
+        signOut({ callbackUrl: "/auth/login" });
+        break;
+      case 403:
+        toast.error("Anda tidak memiliki izin untuk melakukan tindakan ini.");
+        break;
+      case 404:
+        toast.error("Data tidak ditemukan. Silakan coba lagi.");
+        break;
+      case 500:
+        toast.error("Terjadi kesalahan di server. Silakan coba lagi nanti.");
+        break;
+      default:
+        toast.error(
+          error.response.data.message || "Terjadi kesalahan yang tidak diketahui."
+        );
+    }
+  } else if (error.request) {
+    toast.error(error.message);
+  } else {
+    toast.error("Terjadi kesalahan: " + error.message);
+  }
+};
+
 

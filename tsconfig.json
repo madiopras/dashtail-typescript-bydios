@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     // new
+    "typeRoots": ["./types", "./node_modules/@types"],
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "strictNullChecks": true,

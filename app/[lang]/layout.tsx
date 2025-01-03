@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    default: siteConfig.name,
+    default: siteConfig.name, 
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children, params: { lang } }: { children: React.ReactNode; params: { lang: string } }) {
   return (
-    <html lang={lang}>
+    <html lang="en">
       <AuthProvider>
         <TanstackProvider>
           <Providers>

@@ -2,8 +2,14 @@
 
 import { SessionProvider } from "next-auth/react";
 
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  return <SessionProvider basePath="/api/auth">{children}</SessionProvider>;
+type AuthProviderProps = {
+  children: React.ReactNode;
+  //session?: any; // Optional: Jika Anda ingin menginisialisasi sesi dari server
+};
+
+const AuthProvider = ({ children}: AuthProviderProps) => {
+  return <SessionProvider>{children}</SessionProvider>;
 };
 
 export default AuthProvider;
+

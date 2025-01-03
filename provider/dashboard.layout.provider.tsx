@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 import Footer from "@/components/partials/footer";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import ThemeCustomize from "@/components/partials/customizer/theme-customizer";
 import MobileSidebar from "@/components/partials/sidebar/mobile-sidebar";
 import HeaderSearch from "@/components/header-search";
 import { useMounted } from "@/hooks/use-mounted";
@@ -22,70 +21,6 @@ const DashBoardLayoutProvider = ({ children, trans }: { children: React.ReactNod
   const mounted = useMounted();
   if (!mounted) {
     return <LayoutLoader />;
-  }
-  if (layout === "semibox") {
-    return (
-      <>
-        <Header handleOpenSearch={() => setOpen(true)} trans={trans} />
-        <Sidebar trans={trans} />
-
-        <div
-          className={cn("content-wrapper transition-all duration-150 ", {
-            "ltr:xl:ml-[72px] rtl:xl:mr-[72px]": collapsed,
-            "ltr:xl:ml-[272px] rtl:xl:mr-[272px]": !collapsed,
-          })}
-        >
-          <div
-            className={cn(
-              "pt-6 pb-8 px-4  page-min-height-semibox ",
-
-            )}
-          >
-            <div className="semibox-content-wrapper ">
-              <LayoutWrapper
-                isMobile={isMobile}
-                setOpen={setOpen}
-                open={open}
-                location={location}
-                trans={trans}
-              >
-                {children}
-              </LayoutWrapper>
-            </div>
-          </div>
-        </div>
-        <Footer handleOpenSearch={() => setOpen(true)} />
-        <ThemeCustomize />
-      </>
-    );
-  }
-  if (layout === "horizontal") {
-    return (
-      <>
-        <Header handleOpenSearch={() => setOpen(true)} trans={trans} />
-
-        <div className={cn("content-wrapper transition-all duration-150 ")}>
-          <div
-            className={cn(
-              "  pt-6 px-6 pb-8  page-min-height-horizontal ",
-              {}
-            )}
-          >
-            <LayoutWrapper
-              isMobile={isMobile}
-              setOpen={setOpen}
-              open={open}
-              location={location}
-              trans={trans}
-            >
-              {children}
-            </LayoutWrapper>
-          </div>
-        </div>
-        <Footer handleOpenSearch={() => setOpen(true)} />
-        <ThemeCustomize />
-      </>
-    );
   }
 
   if (sidebarType !== "module") {
@@ -118,7 +53,6 @@ const DashBoardLayoutProvider = ({ children, trans }: { children: React.ReactNod
           </div>
         </div>
         <Footer handleOpenSearch={() => setOpen(true)} />
-        <ThemeCustomize />
       </>
     );
   }
@@ -151,7 +85,7 @@ const DashBoardLayoutProvider = ({ children, trans }: { children: React.ReactNod
         </div>
       </div>
       <Footer handleOpenSearch={() => setOpen(true)} />
-      {isMobile && <ThemeCustomize />}
+      {isMobile}
     </>
   );
 };

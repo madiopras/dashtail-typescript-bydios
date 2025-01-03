@@ -2,7 +2,7 @@
 
 
 export const siteConfig = {
-  name: "DashTail - Admin By Dios",
+  name: "SumatraApp",
   description: null,
   theme: "violet",
   layout: "vertical",
